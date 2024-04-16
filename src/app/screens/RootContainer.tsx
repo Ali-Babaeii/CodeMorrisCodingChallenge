@@ -1,7 +1,7 @@
-import styles from '@containers/styles'
-import AppNavigator from '@navigation/AppNavigator'
+import MainStackNavigator from '@navigation/MainStackNavigator'
 import { NavigationContainer } from '@react-navigation/native'
 import { theme } from '@themes/variables/ThemeProvider'
+import styles from 'app/screens/prodocutListScreen/styles'
 import React from 'react'
 import { StatusBar, StatusBarStyle } from 'react-native'
 import { GestureHandlerRootView } from 'react-native-gesture-handler'
@@ -17,7 +17,7 @@ const RootContainer = (): JSX.Element => {
 					animated
 				/>
 				<GestureHandlerRootView style={styles.rootView}>
-					<AppNavigator />
+					<MainStackNavigator />
 				</GestureHandlerRootView>
 			</NavigationContainer>
 		</SafeAreaProvider>

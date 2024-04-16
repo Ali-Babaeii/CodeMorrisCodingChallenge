@@ -1,4 +1,4 @@
-enum ProductMediaType {
+export enum ProductMediaType {
 	'default' = 'default'
 }
 

@@ -1,9 +1,9 @@
 import AccountTabBarIconComponent from '@components/AccountTabBarIconComponent'
 import { CartTabBarIconComponent } from '@components/cart'
 import TabBarNavigatorIconLabelComponent from '@components/TabBarNavigatorIconLabelComponent'
-import ProductListScreen from '@containers/ProductListScreen'
 import Images from '@images'
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs'
+import ProductListScreen from 'app/screens/prodocutListScreen'
 import React from 'react'
 
 const BottomTabNavigator = createBottomTabNavigator()

@@ -4,7 +4,7 @@
  * It shows the whole Navigation structure of the app
  */
 
-import { ProductListScreenParamList } from '@containers/ProductListScreen'
+import { ProductListScreenParamList } from 'app/screens/prodocutListScreen'
 
 import { NavigatorScreenParamList } from './NavigatorHelper'
 
