@@ -25,5 +25,5 @@ export interface Product {
 	companyName: string
 	descriptionAsHtml: string
 	pharmaceuticalForm: string
-	quantity: string
+	quantity: number
 }
