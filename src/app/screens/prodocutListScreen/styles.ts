@@ -12,7 +12,7 @@ const styles = StyleSheet.create({
 		width: 24,
 		height: 24,
 		marginTop: 1,
-		marginRight: 4
+		marginRight: 5
 	},
 	mainContainer: {
 		marginTop: 4,
