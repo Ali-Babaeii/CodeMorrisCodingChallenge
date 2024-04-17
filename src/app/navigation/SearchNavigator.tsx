@@ -1,6 +1,6 @@
 import { SearchNavigatorParamList } from '@navigation/types'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
-import ProductListScreen from 'app/screens/prodocutListScreen'
+import ProductListScreen from 'app/screens/ProdocutListScreen/ProductListScreen'
 import React from 'react'
 
 const SearchNativeStackNavigator = createNativeStackNavigator<SearchNavigatorParamList>()
