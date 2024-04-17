@@ -42,6 +42,8 @@ const styles = StyleSheet.create({
 	},
 	resultTitle: {
 		fontWeight: '500',
+		fontSize: theme.fontSize.common.extraLarge,
+		color: theme.gray,
 		marginTop: 8,
 		marginHorizontal: 20
 	},
