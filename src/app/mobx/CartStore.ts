@@ -19,7 +19,7 @@ class CartStore {
 		})
 	}
 
-	addItem(item, category) {
+	addItem(item, category: CartItem) {
 		const existingItem = this.items.find((cartItem) => cartItem.code === item.code)
 
 		if (existingItem) {
@@ -31,7 +31,7 @@ class CartStore {
 		}
 	}
 
-	removeItem(index) {
+	removeItem(index: number) {
 		this.items.splice(index, 1)
 	}
 

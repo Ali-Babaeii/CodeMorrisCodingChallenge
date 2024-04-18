@@ -49,7 +49,7 @@ const CartScreen = () => {
 		<View
 			style={{
 				...styles.categoryContainer,
-				borderTopColor: category === 'Rezeptfreie Produkte' ? '#E6007E' : '#343434'
+				borderTopColor: category === 'Rezeptfreie Produkte' ? theme.darkGray : theme.pink
 			}}
 		>
 			<ProductImage productImage={item} width={110} height={110} />
@@ -94,7 +94,7 @@ const CartScreen = () => {
 							<Text
 								style={{
 									...styles.categoryText,
-									color: item[0] === 'Rezeptfreie Produkte' ? theme.pink : theme.darkGray
+									color: item[0] === 'Rezeptfreie Produkte' ? theme.darkGray : theme.pink
 								}}
 							>
 								{item[0]}

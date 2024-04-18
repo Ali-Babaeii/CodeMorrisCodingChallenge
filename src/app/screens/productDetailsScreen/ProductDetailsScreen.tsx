@@ -21,8 +21,12 @@ const ProductDetailsScreen = ({ route }) => {
 	const showMoreButton = product.descriptionAsHtml.length > 200 && !showFullDescription
 
 	// Add item to cart function
-	const addToCart = () => {
-		CartStore.addItem(product)
+	const addToCart = (category) => {
+		if (category === 'Rezeptfreie Produkte') {
+			CartStore.addItem(product, 'Rezeptfreie Produkte')
+		} else if (category === 'Kassenrezept für') {
+			CartStore.addItem(product, 'Kassenrezept für')
+		}
 	}
 
 	return (
@@ -35,10 +39,10 @@ const ProductDetailsScreen = ({ route }) => {
 					<Text style={styles.ProdocutNameText}>{product.productName}</Text>
 				</View>
 				<View style={styles.buttonContainer}>
-					<TouchableOpacity style={styles.addToCartButton} onPress={addToCart}>
+					<TouchableOpacity style={styles.addToCartButton} onPress={() => addToCart('Rezeptfreie Produkte')}>
 						<Text style={styles.addToCartText}>In den Warenkorb</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={styles.recieptButton} onPress={addToCart}>
+					<TouchableOpacity style={styles.recieptButton} onPress={() => addToCart('Kassenrezept für')}>
 						<Text style={styles.recieptText}>Rezept einlösen</Text>
 					</TouchableOpacity>
 				</View>
