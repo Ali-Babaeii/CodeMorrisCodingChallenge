@@ -1,5 +1,6 @@
 import { Product } from 'app/models/Product' // Import the Product type
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Text, TouchableOpacity, View } from 'react-native'
 import ProductImage from '../../../components/ProductImage'
 import styles from './styles'
@@ -10,6 +11,8 @@ interface ProductListCardProps {
 }
 
 const ProductListCard: React.FC<ProductListCardProps> = ({ item, handleProductPress }) => {
+	const { t } = useTranslation()
+
 	return (
 		<TouchableOpacity onPress={() => handleProductPress(item)}>
 			<View style={styles.listContainer}>
@@ -29,7 +32,7 @@ const ProductListCard: React.FC<ProductListCardProps> = ({ item, handleProductPr
 					</View>
 
 					<View>
-						<Text style={styles.stockText}>Auf Lager</Text>
+						<Text style={styles.stockText}>{t('inStock')}</Text>
 					</View>
 				</View>
 			</View>

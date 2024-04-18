@@ -1,5 +1,6 @@
 import ProductImage from '@components/ProductImage'
 import React, { useState } from 'react'
+import { useTranslation } from 'react-i18next'
 import { Pressable, ScrollView, Text, TouchableOpacity, View } from 'react-native'
 import HTML from 'react-native-render-html'
 import CartStore from '../../mobx/CartStore'
@@ -9,6 +10,7 @@ import styles from './styles'
 const ProductDetailsScreen = ({ route }) => {
 	const { product } = route.params || {}
 	const [showFullDescription, setShowFullDescription] = useState(false)
+	const { t } = useTranslation()
 
 	// Showing full description function
 	const toggleDescription = () => {
@@ -40,10 +42,10 @@ const ProductDetailsScreen = ({ route }) => {
 				</View>
 				<View style={styles.buttonContainer}>
 					<TouchableOpacity style={styles.addToCartButton} onPress={() => addToCart('Rezeptfreie Produkte')}>
-						<Text style={styles.addToCartText}>In den Warenkorb</Text>
+						<Text style={styles.addToCartText}>{t('addCart')}</Text>
 					</TouchableOpacity>
 					<TouchableOpacity style={styles.recieptButton} onPress={() => addToCart('Kassenrezept für')}>
-						<Text style={styles.recieptText}>Rezept einlösen</Text>
+						<Text style={styles.recieptText}>{t('redeem')}</Text>
 					</TouchableOpacity>
 				</View>
 				<View>
@@ -51,11 +53,11 @@ const ProductDetailsScreen = ({ route }) => {
 					<ProductDetailsCard product={product}></ProductDetailsCard>
 				</View>
 				<View>
-					<Text style={styles.descriptionText}>Beschreibung</Text>
+					<Text style={styles.descriptionText}>{t('description')}</Text>
 					<HTML source={{ html: descriptionToShow }} contentWidth={300} />
 					{showMoreButton && (
 						<Pressable style={styles.showMoreButton} onPress={toggleDescription}>
-							<Text style={styles.showMoreText}>Mehr anzeigen</Text>
+							<Text style={styles.showMoreText}>{t('show More')}</Text>
 						</Pressable>
 					)}
 				</View>

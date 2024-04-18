@@ -1,0 +1,28 @@
+{
+	"search": "Suche",
+	"result": "Ergebnisse",
+	"cart":"Warenkorb",
+	"history":"Bestellungen",
+	"inStock":"Auf Lager",
+	"addCart":"In den Warenkorb",
+	"redeem":"Rezept einlösen",
+	"packageSize":"Packungsgröße",
+	"productForm":"Darreichungsform",
+	"barcode":"PZN",
+	"company":"Hersteller",
+	"description":"Beschreibung",
+	"showMore":"Mehr anzeigen",
+	"publicPrescription":"Public prescription for",
+	"quantity":"Menge",
+	"withoutPrescription":"Without prescription",
+	"totalPrice":"Gesamtpreis",
+    "order":"Kostenpflichtig bestellen",
+	"orderId":"Bestellnummer",
+	"orderRecivied":"Bestellung eingegangen",
+	"english":"English",
+	"german":"German",
+	"cancel":"Stornieren",
+	"emptyCart":"Ihr Warenkorb ist leer"
+  }
+
+  

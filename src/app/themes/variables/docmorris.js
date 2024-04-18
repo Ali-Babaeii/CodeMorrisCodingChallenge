@@ -38,9 +38,12 @@ const docmorris = {
 	fontSize,
 	brandGrey: '#666',
 	lightGray: '#F2F2F2',
+	darkGray: '#343434',
 	brandActive: '#00463d',
 	brandTertiary: '#00965a',
 	white: '#ffff',
+	gray: '#727272',
+	pink: '#E6007E',
 	get badgeColor() {
 		return this.brandTertiary
 	},

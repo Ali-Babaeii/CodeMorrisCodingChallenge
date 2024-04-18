@@ -3,12 +3,15 @@ import { theme } from '@themes/variables/ThemeProvider'
 import { Product } from 'app/models/Product'
 import { observer } from 'mobx-react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Text, View } from 'react-native'
 import { ScrollView } from 'react-native-gesture-handler'
 import HistoryStore from '../../mobx/HistoryStore'
 import styles from './styles'
+
 const OrderHistoryScreen = () => {
 	const categorizedItems = {}
+	const { t } = useTranslation()
 
 	// Iterate over the first 10 orders only
 	HistoryStore.history.slice(0, 10).forEach((order) => {
@@ -33,8 +36,10 @@ const OrderHistoryScreen = () => {
 			<View style={styles.dateContainer}>
 				<Text style={styles.dateText}>{items[0].date}</Text>
 
-				<Text style={styles.orderNumberText}>Bestellnummer: {generateSixDigitNumber()}</Text>
-				<Text style={styles.orderStatusText}>Bestellung eingegangen</Text>
+				<Text style={styles.orderNumberText}>
+					{t('orderId')}: {generateSixDigitNumber()}
+				</Text>
+				<Text style={styles.orderStatusText}>{t('orderRecivied')}</Text>
 			</View>
 			<Text
 				style={{
@@ -56,8 +61,12 @@ const OrderHistoryScreen = () => {
 						<ProductImage productImage={product} width={120} height={120} />
 						<View style={styles.textWrapper}>
 							<Text style={styles.productNameText}>{product.productName}</Text>
-							<Text style={styles.barcodeText}>PZN: {product.code}</Text>
-							<Text style={styles.quantityText}>Anzahl {product.quantity}</Text>
+							<Text style={styles.barcodeText}>
+								{t('barcode')} {product.code}
+							</Text>
+							<Text style={styles.quantityText}>
+								{t('quantity')} {product.quantity}
+							</Text>
 						</View>
 					</View>
 				</View>

@@ -5,6 +5,7 @@ import { Product } from 'app/models/Product'
 import { action } from 'mobx'
 import { observer } from 'mobx-react'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { FlatList, Image, Text, View } from 'react-native'
 import { TouchableOpacity } from 'react-native-gesture-handler'
 import CartStore from '../../mobx/CartStore'
@@ -15,7 +16,9 @@ const deleteIcon = require('../../assets/delete.png')
 
 const CartScreen = () => {
 	const navigation = useNavigation()
+	const { t } = useTranslation()
 
+	// Calculate total price function
 	const getTotalPrice = () => {
 		let totalPrice = 0
 		CartStore.items.forEach((item: Product) => {
@@ -40,6 +43,7 @@ const CartScreen = () => {
 		}
 	})
 
+	// Navigate to Cart Screen
 	const checkout = () => {
 		CartStore.moveToHistory()
 		navigation.navigate('Bestellungen')
@@ -55,7 +59,7 @@ const CartScreen = () => {
 			<ProductImage productImage={item} width={110} height={110} />
 			<View style={styles.cardContainer}>
 				<Text style={styles.productNameText}>{item.productName}</Text>
-				<Text style={styles.quantityText}>Menge:</Text>
+				<Text style={styles.quantityText}>{t('quantity')}:</Text>
 				<View style={styles.quantityContainer}>
 					<TouchableOpacity style={styles.quantityButton} onPress={() => updateQuantity(item, true)}>
 						{item.quantity == 1 ? (
@@ -110,16 +114,16 @@ const CartScreen = () => {
 				/>
 			) : (
 				<View style={styles.emptyBasketContainer}>
-					<Text style={styles.emptyBasketText}>Your cart is empty</Text>
+					<Text style={styles.emptyBasketText}>{t('emptyCart')}</Text>
 					<Image source={basket} style={{ width: 35, height: 35, marginLeft: 10 }} />
 				</View>
 			)}
 			<View style={styles.totalPriceContainer}>
-				<Text style={styles.totalPriceText}>Gesamtpreis</Text>
+				<Text style={styles.totalPriceText}>{t('totalPrice')}</Text>
 				<Text style={styles.totalPriceNumber}>{getTotalPrice()} €</Text>
 			</View>
 			<TouchableOpacity style={styles.orderButton} onPress={checkout}>
-				<Text style={styles.orderText}>Kostenpflichtig bestellen</Text>
+				<Text style={styles.orderText}>{t('order')}</Text>
 			</TouchableOpacity>
 		</View>
 	)

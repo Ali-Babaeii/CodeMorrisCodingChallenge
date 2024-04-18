@@ -1,5 +1,6 @@
 import { Product } from 'app/models/Product'
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 import { Image, Text, View } from 'react-native'
 import styles from './styles'
 
@@ -12,11 +13,13 @@ const barcode = require('../../../assets/barcode.png')
 const company = require('../../../assets/company.png')
 
 const ProductDetailsCard: React.FC<ProductDetailsProps> = ({ product }) => {
+	const { t } = useTranslation()
+
 	const data = [
-		{ title: 'Packungsgröße', value: product.quantity, imageUrl: packung },
-		{ title: 'Darreichungsform', value: product.pharmaceuticalForm, imageUrl: pills },
-		{ title: 'PZN', value: product.code, imageUrl: barcode },
-		{ title: 'Hersteller', value: product.companyName, imageUrl: company }
+		{ title: t('packageSize'), value: product.quantity, imageUrl: packung },
+		{ title: t('productForm'), value: product.pharmaceuticalForm, imageUrl: pills },
+		{ title: t('barcode'), value: product.code, imageUrl: barcode },
+		{ title: t('company'), value: product.companyName, imageUrl: company }
 	]
 
 	return (

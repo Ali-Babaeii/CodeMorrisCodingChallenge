@@ -11,6 +11,7 @@ import ProductListScreen from 'app/screens/ProdocutListScreen/ProductListScreen'
 import ProductDetailsScreen from 'app/screens/productDetailsScreen/ProductDetailsScreen'
 
 import React from 'react'
+import { useTranslation } from 'react-i18next'
 
 const BottomTabNavigator = createBottomTabNavigator()
 const Stack = createNativeStackNavigator()
@@ -30,6 +31,8 @@ const ProductListStack = () => (
 	</Stack.Navigator>
 )
 export const TabNavigator = (): JSX.Element => {
+	const { t } = useTranslation()
+
 	return (
 		<BottomTabNavigator.Navigator
 			initialRouteName={'SearchNavigator'}
@@ -42,7 +45,7 @@ export const TabNavigator = (): JSX.Element => {
 				name={'SearchNavigator'}
 				component={ProductListStack}
 				options={{
-					tabBarLabel: 'Suche',
+					tabBarLabel: t('search'),
 					tabBarIcon: (): JSX.Element => {
 						return <TabBarNavigatorIconLabelComponent icon={Images.icons.assortment} />
 					},
@@ -54,7 +57,7 @@ export const TabNavigator = (): JSX.Element => {
 				name={'Warenkorb'}
 				component={CartScreen}
 				options={{
-					tabBarLabel: 'Warenkorb',
+					tabBarLabel: t('cart'),
 					tabBarIcon: (): JSX.Element => {
 						return <CartTabBarIconComponent />
 					},
@@ -66,7 +69,7 @@ export const TabNavigator = (): JSX.Element => {
 				name={'Bestellungen'}
 				component={OrderHistoryScreen}
 				options={{
-					tabBarLabel: 'Bestellungen',
+					tabBarLabel: t('history'),
 					tabBarIcon: (): JSX.Element => {
 						return <AccountTabBarIconComponent />
 					},

@@ -1,16 +1,16 @@
 import Images from '@images'
-import { ScreenParamList } from '@navigation/types'
-import { theme } from '@themes/variables/ThemeProvider'
-import React, { useCallback, useState } from 'react'
-import { FlatList, Image, SafeAreaView, Text, TextInput, View } from 'react-native'
-
 import { useNavigation } from '@react-navigation/native'
+import { theme } from '@themes/variables/ThemeProvider'
 import { getProducts } from 'app/api/getProducts'
 import { Product } from 'app/models/Product'
 import ProductListCard from 'app/screens/ProdocutListScreen/Components/ProductListCard'
+import React, { useCallback, useState } from 'react'
+import { useTranslation } from 'react-i18next'
+import { FlatList, Image, SafeAreaView, Text, TextInput, TouchableOpacity, View } from 'react-native'
+import LanguageModal from './Components/LanguageModal'
 import styles from './styles'
 
-export type ProductListScreenParamList = ScreenParamList<'ProductListScreen'>
+const changeIcon = require('../../assets/changeLanguage.png')
 
 const ProductListScreen = () => {
 	const allProducts: Product[] = getProducts()
@@ -18,6 +18,20 @@ const ProductListScreen = () => {
 	const [filteredProducts, setFilteredProducts] = useState<Product[]>(allProducts)
 	const [loadedProducts, setLoadedProducts] = useState(10) // Initial number of products loaded
 	const navigation = useNavigation()
+	const { t, i18n } = useTranslation()
+
+	const [isModalVisible, setIsModalVisible] = useState(false)
+
+	// Toggle modal visibility
+	const toggleModal = () => {
+		setIsModalVisible(!isModalVisible)
+	}
+
+	// Change language
+	const changeLanguage = (lng: string) => {
+		i18n.changeLanguage(lng)
+		toggleModal() // Close modal after language change
+	}
 
 	const handleProductPress = (product: Product) => {
 		navigation.navigate('ProductDetailsScreen', { product })
@@ -27,6 +41,7 @@ const ProductListScreen = () => {
 		<ProductListCard item={item} handleProductPress={handleProductPress} />
 	)
 
+	// Search products function
 	const handleSearch = (query: string) => {
 		setSearchQuery(query)
 		if (query.trim() === '') {
@@ -39,12 +54,16 @@ const ProductListScreen = () => {
 		}
 	}
 
+	// Load 10 item when scrolling
 	const loadMoreProducts = useCallback(() => {
 		setLoadedProducts((prevLoadedProducts) => prevLoadedProducts + 10)
 	}, [])
 
 	return (
 		<SafeAreaView style={styles.mainContainer}>
+			<TouchableOpacity style={styles.changeLanguageIcon} onPress={toggleModal}>
+				<Image source={changeIcon} style={{ width: 30, height: 30 }}></Image>
+			</TouchableOpacity>
 			<View style={styles.searchInputContainer}>
 				<TextInput
 					accessibilityLabel={'SearchField'}
@@ -52,7 +71,7 @@ const ProductListScreen = () => {
 					autoCorrect={false}
 					selectionColor={theme.brandTertiary}
 					returnKeyType={'search'}
-					placeholder={'Suche'}
+					placeholder={t('search')}
 					allowFontScaling={false}
 					placeholderTextColor={theme.searchBarPlaceholder}
 					value={searchQuery}
@@ -61,7 +80,9 @@ const ProductListScreen = () => {
 				<Image source={Images.icons.search} style={styles.searchAndBarcodeIcon} />
 			</View>
 			<View>
-				<Text style={styles.resultTitle}>{filteredProducts.length} Ergebnisse</Text>
+				<Text style={styles.resultTitle}>
+					{filteredProducts.length} {t('result')}
+				</Text>
 				<FlatList
 					data={filteredProducts.slice(0, loadedProducts)}
 					renderItem={renderItem}
@@ -72,6 +93,9 @@ const ProductListScreen = () => {
 					onEndReachedThreshold={0.1}
 				/>
 			</View>
+
+			{/* Change language Modal */}
+			<LanguageModal isVisible={isModalVisible} onClose={toggleModal} onChangeLanguage={changeLanguage} />
 		</SafeAreaView>
 	)
 }
