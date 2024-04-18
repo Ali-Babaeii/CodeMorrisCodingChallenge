@@ -44,48 +44,14 @@ const styles = StyleSheet.create({
 		fontWeight: '500',
 		fontSize: theme.fontSize.common.extraLarge,
 		color: theme.gray,
-		marginTop: 8,
+		marginVertical: 10,
 		marginHorizontal: 20
 	},
 	listDivider: {
 		height: 1,
 		backgroundColor: theme.lightGray
 	},
-	changeLanguageIcon: { alignItems: 'flex-end', marginRight: 15 },
-	modalContainer: {
-		backgroundColor: theme.brandActive,
-		width: '100%',
-		borderRadius: 15,
-		paddingHorizontal: 15,
-		bottom: 0,
-		paddingVertical: 40,
-		position: 'absolute'
-	},
-	enButton: {
-		backgroundColor: 'white',
-		padding: 15,
-		alignItems: 'center',
-		borderRadius: 30
-	},
-	lngText: {
-		fontSize: theme.fontSize.major.extraSmall,
-		fontFamily: theme.fontFamily,
-		fontWeight: '500'
-	},
-	deButton: {
-		backgroundColor: 'white',
-		borderRadius: 30,
-		padding: 15,
-		alignItems: 'center',
-		marginTop: 20
-	},
-	cancelButton: {
-		backgroundColor: 'white',
-		borderRadius: 30,
-		padding: 15,
-		alignItems: 'center',
-		marginTop: 50
-	}
+	changeLanguageIcon: { alignItems: 'flex-end', marginRight: 15 }
 })
 
 export default styles

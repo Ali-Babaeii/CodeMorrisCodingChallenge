@@ -64,6 +64,7 @@ const ProductDetailsScreen = ({ route }) => {
 								borderColor: !isProductInStock ? theme.gray : theme.brandActive
 							}
 						]}
+						onPress={() => addToCart('Kassenrezept für')}
 						disabled={!isProductInStock} // Disable button if product is not in stock
 					>
 						<Text style={styles.recieptText}>{t('redeem')}</Text>

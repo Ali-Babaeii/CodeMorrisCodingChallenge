@@ -6,6 +6,7 @@
 		"experimentalDecorators": true,
 		"esModuleInterop": true,
 		"isolatedModules": false,
+		"resolveJsonModule": true,
 		"jsx": "react-native",
 		"module": "es2015",
 		"moduleResolution": "node",

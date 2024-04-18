@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
 	addToCartButton: {
 		padding: 6,
 		borderRadius: 10,
-		backgroundColor: theme.brandActive,
+
 		height: 48,
 		alignItems: 'center',
 		justifyContent: 'center'
@@ -31,7 +31,6 @@ const styles = StyleSheet.create({
 		borderRadius: 10,
 		backgroundColor: theme.white,
 		marginTop: 15,
-		borderColor: theme.brandActive,
 		borderWidth: 1,
 		height: 48,
 		alignItems: 'center',
