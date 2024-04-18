@@ -1,4 +1,5 @@
 import ProductImage from '@components/ProductImage'
+import { theme } from '@themes/variables/ThemeProvider'
 import React, { useState } from 'react'
 import { useTranslation } from 'react-i18next'
 import { Pressable, ScrollView, Text, TouchableOpacity, View } from 'react-native'
@@ -11,6 +12,7 @@ const ProductDetailsScreen = ({ route }) => {
 	const { product } = route.params || {}
 	const [showFullDescription, setShowFullDescription] = useState(false)
 	const { t } = useTranslation()
+	const [isProductInStock, setIsProductInStock] = useState(true) // State to track product availability
 
 	// Showing full description function
 	const toggleDescription = () => {
@@ -24,10 +26,12 @@ const ProductDetailsScreen = ({ route }) => {
 
 	// Add item to cart function
 	const addToCart = (category) => {
-		if (category === 'Rezeptfreie Produkte') {
-			CartStore.addItem(product, 'Rezeptfreie Produkte')
-		} else if (category === 'Kassenrezept für') {
-			CartStore.addItem(product, 'Kassenrezept für')
+		if (isProductInStock) {
+			if (category === 'Rezeptfreie Produkte') {
+				CartStore.addItem(product, 'Rezeptfreie Produkte')
+			} else if (category === 'Kassenrezept für') {
+				CartStore.addItem(product, 'Kassenrezept für')
+			}
 		}
 	}
 
@@ -41,10 +45,27 @@ const ProductDetailsScreen = ({ route }) => {
 					<Text style={styles.ProdocutNameText}>{product.productName}</Text>
 				</View>
 				<View style={styles.buttonContainer}>
-					<TouchableOpacity style={styles.addToCartButton} onPress={() => addToCart('Rezeptfreie Produkte')}>
+					<TouchableOpacity
+						style={[
+							styles.addToCartButton,
+							{
+								backgroundColor: !isProductInStock ? theme.gray : theme.brandActive
+							}
+						]}
+						onPress={() => addToCart('Rezeptfreie Produkte')}
+						disabled={!isProductInStock} // Disable button if product is not in stock
+					>
 						<Text style={styles.addToCartText}>{t('addCart')}</Text>
 					</TouchableOpacity>
-					<TouchableOpacity style={styles.recieptButton} onPress={() => addToCart('Kassenrezept für')}>
+					<TouchableOpacity
+						style={[
+							styles.recieptButton,
+							{
+								borderColor: !isProductInStock ? theme.gray : theme.brandActive
+							}
+						]}
+						disabled={!isProductInStock} // Disable button if product is not in stock
+					>
 						<Text style={styles.recieptText}>{t('redeem')}</Text>
 					</TouchableOpacity>
 				</View>
