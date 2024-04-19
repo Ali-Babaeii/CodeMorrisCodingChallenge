@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 // @flow
 import { Dimensions, PixelRatio, Platform } from 'react-native'
-import DeviceInfo from 'react-native-device-info'
+// import DeviceInfo from 'react-native-device-info'
 
 import { isIOS, PLATFORM } from '../../utils/PlatformUtils'
 import { theme } from './ThemeProvider'

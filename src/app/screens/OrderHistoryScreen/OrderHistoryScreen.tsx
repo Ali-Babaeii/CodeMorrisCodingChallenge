@@ -75,7 +75,7 @@ const OrderHistoryScreen = () => {
 	)
 
 	return (
-		<ScrollView showsVerticalScrollIndicator={false} style={{ flex: 1, padding: 15 }}>
+		<ScrollView showsVerticalScrollIndicator={false} style={styles.mainContainer}>
 			{Object.keys(categorizedItems).map((category) => renderCategoryItems(category, categorizedItems[category]))}
 		</ScrollView>
 	)

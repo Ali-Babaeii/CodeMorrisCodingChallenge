@@ -61,11 +61,12 @@ const ProductListScreen = () => {
 
 	return (
 		<SafeAreaView style={styles.mainContainer}>
-			<TouchableOpacity style={styles.changeLanguageIcon} onPress={toggleModal}>
+			<TouchableOpacity testID="language-icon" style={styles.changeLanguageIcon} onPress={toggleModal}>
 				<Image source={changeIcon} style={{ width: 30, height: 30 }}></Image>
 			</TouchableOpacity>
 			<View style={styles.searchInputContainer}>
 				<TextInput
+					testID="search-input"
 					accessibilityLabel={'SearchField'}
 					style={styles.textInput}
 					autoCorrect={false}

@@ -2,6 +2,7 @@ import { theme } from '@themes/variables/ThemeProvider'
 import { StyleSheet } from 'react-native'
 
 const styles = StyleSheet.create({
+	mainContainer: { flex: 1, padding: 15, marginBottom: 20 },
 	categoryContainer: {
 		width: '100%',
 		padding: 10,
@@ -11,7 +12,13 @@ const styles = StyleSheet.create({
 		justifyContent: 'center',
 		borderRadius: 8
 	},
-	categoryWrapper: { backgroundColor: 'white', paddingVertical: 20, paddingHorizontal: 8, borderRadius: 8 },
+	categoryWrapper: {
+		backgroundColor: 'white',
+		paddingVertical: 20,
+		paddingHorizontal: 8,
+		borderRadius: 8,
+		marginBottom: 10
+	},
 	categoryText: {
 		fontSize: theme.fontSize.common.extraLarge,
 		fontWeight: '500',
