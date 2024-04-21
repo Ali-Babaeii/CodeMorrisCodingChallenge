@@ -11,17 +11,15 @@ const styles = StyleSheet.create({
 		resizeMode: 'contain',
 		width: 24,
 		height: 24,
-		marginTop: 1
+		marginTop: 1,
+		marginRight: 5
 	},
-	searchContainer: {
+	mainContainer: {
 		marginTop: 4,
-		marginRight: 12,
-		marginLeft: 12,
-		marginBottom: theme.searchInputContainerMarginBottom,
-		flexDirection: 'row'
+		backgroundColor: theme.white,
+		marginBottom: theme.searchInputContainerMarginBottom
 	},
 	searchInputContainer: {
-		flex: 1,
 		marginHorizontal: theme.searchInputContainerMarginHorizontal,
 		borderWidth: theme.searchInputContainerBorderWidth,
 		borderRadius: theme.searchInputBorderRadius,
@@ -41,7 +39,19 @@ const styles = StyleSheet.create({
 		color: theme.brandDark,
 		fontFamily: theme.fontFamily,
 		textAlign: 'center'
-	}
+	},
+	resultTitle: {
+		fontWeight: '500',
+		fontSize: theme.fontSize.common.extraLarge,
+		color: theme.gray,
+		marginVertical: 10,
+		marginHorizontal: 20
+	},
+	listDivider: {
+		height: 1,
+		backgroundColor: theme.lightGray
+	},
+	changeLanguageIcon: { alignItems: 'flex-end', marginRight: 15 }
 })
 
 export default styles

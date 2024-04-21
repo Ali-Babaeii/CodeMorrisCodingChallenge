@@ -1,0 +1,27 @@
+
+  {
+	"search": "Search",
+	"result": "Result",
+	"cart":"Cart",
+	"history":"Order History",
+	"inStock":"In Stock",
+	"addCart":"Add To Cart",
+	"redeem":"Redeem prescription",
+	"packageSize":"Package Size",
+	"productForm":"Pharmaceutical Form",
+	"barcode":"PZN",
+	"company":"Company",
+	"description":"Description",
+	"showMore":"Show more",
+	"publicPrescription":"Public prescription for",
+	"quantity":"Quantity",
+	"withoutPrescription":"Without prescription",
+	"totalPrice":"Total Price",
+    "order":"Order with costs",
+	"orderId":"Order ID",
+	"orderRecivied":"Order Recivied",
+	"english":"English",
+	"german":"German",
+	"cancel":"Cancel",
+	"emptyCart":"Your cart is empty"
+  }

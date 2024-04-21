@@ -1,7 +1,7 @@
 /* eslint-disable @typescript-eslint/explicit-function-return-type */
 // @flow
 import { Dimensions, PixelRatio, Platform } from 'react-native'
-import DeviceInfo from 'react-native-device-info'
+// import DeviceInfo from 'react-native-device-info'
 
 import { isIOS, PLATFORM } from '../../utils/PlatformUtils'
 import { theme } from './ThemeProvider'
@@ -37,8 +37,13 @@ const docmorris = {
 	deviceWidth,
 	fontSize,
 	brandGrey: '#666',
+	lightGray: '#F2F2F2',
+	darkGray: '#343434',
 	brandActive: '#00463d',
 	brandTertiary: '#00965a',
+	white: '#ffff',
+	gray: '#727272',
+	pink: '#E6007E',
 	get badgeColor() {
 		return this.brandTertiary
 	},
